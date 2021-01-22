@@ -7,6 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+            <Rectangle x:Name="BottomLeft"  Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145"  Stroke="Black" VerticalAlignment="Bottom" Width="325" Drop="OnDrag" AllowDrop="True"/>
+            <Rectangle x:Name="TopLeft" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145"  Stroke="Black" VerticalAlignment="Top" Width="325" Drop="OnDrag" AllowDrop="True"/>
+        <Rectangle x:Name="BottomRight" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="145"  Stroke="Black" VerticalAlignment="Bottom" Width="325" Drop="OnDrag" AllowDrop="True"/>
+        <Rectangle x:Name="TopRight" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="145" Stroke="Black" VerticalAlignment="Top" Width="325" Drop="OnDrag" AllowDrop="True"/>
+        <Button Content="Start Calculation" HorizontalAlignment="Left" Margin="339,205,0,0" VerticalAlignment="Top" Width="102" Click="Calculate" />
+        <TextBox  HorizontalAlignment="Left" Height="23" Margin="374,177,0,0" TextWrapping="Wrap" Text="1100" VerticalAlignment="Top" Width="35"/>
+        <Label Content="Center Point Distance:" HorizontalAlignment="Left" Margin="329,146,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

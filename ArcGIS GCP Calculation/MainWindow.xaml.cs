@@ -42,6 +42,7 @@ namespace ArcGIS_GCP_Calculation
                 BottomRightStart != string.Empty)
             {
                 DoSomeCalculation();
+                MessageBox.Show("Successfully generated Files");
             }
             else
             {
@@ -66,9 +67,9 @@ namespace ArcGIS_GCP_Calculation
             DoomArray[width, height] = topRight;
 
 
-            for (int x = 0; x <= width; x++)
+            for (int y = 0; y <= height; y++)
             {
-                for(int y = 0; y<= height; y++)
+                for(int x = 0; x<= width; x++)
                 {
                     if(DoomArray[x, y] == null)
                     {
@@ -77,12 +78,28 @@ namespace ArcGIS_GCP_Calculation
                     DoomArray[x, y].ApplyYModifier(MapScopeY * y);
                     }
                 }
+            }
 
+            for (int y = 1; y <= height - 1; y++)
+            {
+                MagicInterpolation(bottomLeft, topLeft, y, height, DoomArray[0, y]);
+                MagicInterpolation(bottomRight,topRight, y, height, DoomArray[width, y]);
+            }
+
+            for (int x = 1; x <= width - 1; x++)
+            {
+                MagicInterpolation(topLeft, topRight, x, width, DoomArray[x, height]);
+                MagicInterpolation(bottomLeft, bottomRight, x, width, DoomArray[x, 0]);
             }
 
 
-
-
+            for (int x = 1; x <= width - 1; x++)
+            {
+                for (int y = 1; y <= height - 1; y++)
+                {
+                    MagicInterpolation(DoomArray[0, y], DoomArray[width, y], x, width, DoomArray[x, y]);
+                }
+            }
 
 
             //Dump in FIles
@@ -102,6 +119,32 @@ namespace ArcGIS_GCP_Calculation
                 }
 
             }
+        }
+
+        private void TextBox_TextChangedX(object sender, TextChangedEventArgs e)
+        {
+            if(((TextBox)sender).Text != string.Empty)
+            MapScopeX = int.Parse(((TextBox)sender).Text);
+
+        }
+        public void MagicInterpolation(MapObject l, MapObject r, int intPolVal, int maxVal, MapObject ToInterp)
+        {
+            ToInterp.PxTopLeftX = l.PxTopLeftX + ((r.PxTopLeftX - l.PxTopLeftX) * (((double)intPolVal - 0) / (double)maxVal));
+            ToInterp.PxTopRightX = l.PxTopRightX + ((r.PxTopRightX - l.PxTopRightX) * (((double)intPolVal - 0) / (double)maxVal));
+            ToInterp.PxMiddleX = l.PxMiddleX + ((r.PxMiddleX - l.PxMiddleX) * (((double)intPolVal - 0) / (double)maxVal));
+            ToInterp.PxBottomLeftX = l.PxBottomLeftX + ((r.PxBottomLeftX - l.PxBottomLeftX) * (((double)intPolVal - 0) / (double)maxVal));
+            ToInterp.PxBottomRightX = l.PxBottomRightX + ((r.PxBottomRightX - l.PxBottomRightX) * (((double)intPolVal - 0) / (double)maxVal));
+
+            ToInterp.PxTopLeftY = l.PxTopLeftY + ((r.PxTopLeftY - l.PxTopLeftY) * (((double)intPolVal - 0) / (double)maxVal));
+            ToInterp.PxTopRightY = l.PxTopRightY + ((r.PxTopRightY - l.PxTopRightY) * (((double)intPolVal - 0) / (double)maxVal));
+            ToInterp.PxMiddleY = l.PxMiddleY + ((r.PxMiddleY - l.PxMiddleY) * (((double)intPolVal - 0) / (double)maxVal));
+            ToInterp.PxBottomLeftY = l.PxBottomLeftY + ((r.PxBottomLeftY - l.PxBottomLeftY) * (((double)intPolVal - 0) / (double)maxVal));
+            ToInterp.PxBottomRightY = l.PxBottomRightY + ((r.PxBottomRightY - l.PxBottomRightY) * (((double)intPolVal - 0) / (double)maxVal));
+        }
+        private void TextBox_TextChangedY(object sender, TextChangedEventArgs e)
+        {
+            if (((TextBox)sender).Text != string.Empty)
+                MapScopeY = int.Parse(((TextBox)sender).Text);
         }
 
         public MapObject ExtractData(string filePath)

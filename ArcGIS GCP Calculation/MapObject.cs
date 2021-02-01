@@ -51,17 +51,17 @@ namespace ArcGIS_GCP_Calculation
             copy.BottomLeftY = BottomLeftY;
             copy.BottomRightY = BottomRightY;
 
-            copy.PxTopLeftX = PxTopLeftX;
-            copy.PxTopRightX = PxTopRightX;
-            copy.PxMiddleX = PxMiddleX;
-            copy.PxBottomLeftX = PxBottomLeftX;
-            copy.PxBottomRightX = PxBottomRightX;
+           // copy.PxTopLeftX = PxTopLeftX;
+            //copy.PxTopRightX = PxTopRightX;
+            //copy.PxMiddleX = PxMiddleX;
+            //copy.PxBottomLeftX = PxBottomLeftX;
+            //copy.PxBottomRightX = PxBottomRightX;
 
-            copy.PxTopLeftY = PxTopLeftY;
-            copy.PxTopRightY = PxTopRightY;
-            copy.PxMiddleY = PxMiddleY;
-            copy.PxBottomLeftY = PxBottomLeftY;
-            copy.PxBottomRightY = PxBottomRightY;
+            //copy.PxTopLeftY = PxTopLeftY;
+            //copy.PxTopRightY = PxTopRightY;
+            //copy.PxMiddleY = PxMiddleY;
+            //copy.PxBottomLeftY = PxBottomLeftY;
+            //copy.PxBottomRightY = PxBottomRightY;
 
 
             return copy;
@@ -82,6 +82,7 @@ namespace ArcGIS_GCP_Calculation
             BottomLeftY += additive;
             BottomRightY += additive;
         }
+        
         public string DumpToFile()
         {
             StringBuilder text = new StringBuilder();

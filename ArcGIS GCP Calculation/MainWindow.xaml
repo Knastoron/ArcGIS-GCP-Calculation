@@ -7,13 +7,18 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-            <Rectangle x:Name="BottomLeft"  Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145"  Stroke="Black" VerticalAlignment="Bottom" Width="325" Drop="OnDrag" AllowDrop="True"/>
-            <Rectangle x:Name="TopLeft" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145"  Stroke="Black" VerticalAlignment="Top" Width="325" Drop="OnDrag" AllowDrop="True"/>
+        <Rectangle x:Name="BottomLeft"  Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145"  Stroke="Black" VerticalAlignment="Bottom" Width="325" Drop="OnDrag" AllowDrop="True"/>
+        <Rectangle x:Name="TopLeft" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145"  Stroke="Black" VerticalAlignment="Top" Width="325" Drop="OnDrag" AllowDrop="True"/>
         <Rectangle x:Name="BottomRight" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="145"  Stroke="Black" VerticalAlignment="Bottom" Width="325" Drop="OnDrag" AllowDrop="True"/>
         <Rectangle x:Name="TopRight" Fill="#FFF4F4F5" HorizontalAlignment="Right" Height="145" Stroke="Black" VerticalAlignment="Top" Width="325" Drop="OnDrag" AllowDrop="True"/>
         <Button Content="Start Calculation" HorizontalAlignment="Left" Margin="339,205,0,0" VerticalAlignment="Top" Width="102" Click="Calculate" />
-        <TextBox  HorizontalAlignment="Left" Height="23" Margin="374,177,0,0" TextWrapping="Wrap" Text="1100" VerticalAlignment="Top" Width="35"/>
-        <Label Content="Center Point Distance:" HorizontalAlignment="Left" Margin="329,146,0,0" VerticalAlignment="Top"/>
+
+        <TextBox  HorizontalAlignment="Left" Height="23" Margin="396,177,0,0" TextWrapping="Wrap" MaxLength="4" TextChanged="TextBox_TextChangedY" Text="1100" VerticalAlignment="Top" Width="45"/>
+        <Label Margin="339,140,406,247">X:</Label>
+        <Label Margin="396,140,351,247" RenderTransformOrigin="0.325,-0.031">Y:</Label>
+        <TextBox  HorizontalAlignment="Left" Height="23" Margin="339,177,0,0" TextChanged="TextBox_TextChangedX" TextWrapping="Wrap" Text="1100" VerticalAlignment="Top" Width="47"/>
+
+        <Label Content="Center Point Distance:" HorizontalAlignment="Left" Margin="330,119,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

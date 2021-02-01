@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ArcGIS_GCP_Calculation"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        ResizeMode="NoResize"
+        >
     <Grid>
         <Rectangle x:Name="BottomLeft"  Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145"  Stroke="Black" VerticalAlignment="Bottom" Width="325" Drop="OnDrag" AllowDrop="True"/>
         <Rectangle x:Name="TopLeft" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="145"  Stroke="Black" VerticalAlignment="Top" Width="325" Drop="OnDrag" AllowDrop="True"/>
@@ -19,6 +21,8 @@
         <TextBox  HorizontalAlignment="Left" Height="23" Margin="339,177,0,0" TextChanged="TextBox_TextChangedX" TextWrapping="Wrap" Text="1100" VerticalAlignment="Top" Width="47"/>
 
         <Label Content="Center Point Distance:" HorizontalAlignment="Left" Margin="330,119,0,0" VerticalAlignment="Top"/>
-
+        <TextBlock Margin="93,161,469,163" TextWrapping="Wrap">Step 1: Add your corner files via drag n drop 
+        in the respective Corner</TextBlock>
+        <TextBlock Margin="469,164,93,160" TextWrapping="Wrap">Step 2: Hit the "Start Calculation"-button -> find your Files in the "Exports"-Subfolder</TextBlock>
     </Grid>
 </Window>
